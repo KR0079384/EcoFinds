@@ -2,7 +2,153 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* light gray bg */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* EcoFinds Design System - Earth & Nature Inspired */
+    --background: 45 15% 97%;
+    --foreground: 140 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 15% 15%;
+
+    /* Primary - Forest Green */
+    --primary: 140 60% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 140 65% 30%;
+
+    /* Secondary - Sage Green */
+    --secondary: 120 20% 85%;
+    --secondary-foreground: 140 40% 25%;
+
+    /* Muted - Warm Gray */
+    --muted: 45 10% 92%;
+    --muted-foreground: 140 10% 45%;
+
+    /* Accent - Terracotta */
+    --accent: 15 75% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Success - Fresh Green */
+    --success: 130 70% 50%;
+    --success-foreground: 0 0% 98%;
+
+    /* Destructive - Warm Red */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 140 20% 88%;
+    --input: 140 15% 95%;
+    --ring: 140 60% 35%;
+
+    /* Custom Design Tokens */
+    --earth-gradient: linear-gradient(135deg, hsl(140 60% 35%), hsl(15 75% 65%));
+    --nature-gradient: linear-gradient(180deg, hsl(120 40% 85%), hsl(45 30% 90%));
+    --hero-gradient: linear-gradient(135deg, hsl(140 60% 35%) 0%, hsl(120 50% 45%) 50%, hsl(15 75% 65%) 100%);
+    
+    /* Shadows */
+    --shadow-eco: 0 4px 20px -2px hsl(140 60% 35% / 0.15);
+    --shadow-warm: 0 8px 30px -5px hsl(15 75% 65% / 0.2);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* EcoFinds Dark Mode - Deep Forest Theme */
+    --background: 140 30% 8%;
+    --foreground: 120 15% 95%;
+
+    --card: 140 25% 10%;
+    --card-foreground: 120 15% 95%;
+
+    --popover: 140 25% 10%;
+    --popover-foreground: 120 15% 95%;
+
+    /* Primary - Brighter Forest Green for dark mode */
+    --primary: 140 65% 45%;
+    --primary-foreground: 140 30% 8%;
+    --primary-hover: 140 70% 40%;
+
+    /* Secondary - Muted Green */
+    --secondary: 140 20% 20%;
+    --secondary-foreground: 120 15% 95%;
+
+    /* Muted - Dark Gray */
+    --muted: 140 15% 15%;
+    --muted-foreground: 140 10% 65%;
+
+    /* Accent - Softer Terracotta */
+    --accent: 15 60% 55%;
+    --accent-foreground: 140 30% 8%;
+
+    /* Success - Bright Green */
+    --success: 130 70% 55%;
+    --success-foreground: 140 30% 8%;
+
+    /* Destructive - Warm Red */
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 140 30% 8%;
+
+    /* Borders & Inputs */
+    --border: 140 20% 25%;
+    --input: 140 15% 18%;
+    --ring: 140 65% 45%;
+
+    /* Custom Design Tokens - Dark Mode */
+    --earth-gradient: linear-gradient(135deg, hsl(140 65% 45%), hsl(15 60% 55%));
+    --nature-gradient: linear-gradient(180deg, hsl(140 25% 12%), hsl(140 20% 15%));
+    --hero-gradient: linear-gradient(135deg, hsl(140 65% 45%) 0%, hsl(120 60% 50%) 50%, hsl(15 60% 55%) 100%);
+    
+    /* Shadows - Darker for dark mode */
+    --shadow-eco: 0 4px 20px -2px hsl(140 65% 45% / 0.25);
+    --shadow-warm: 0 8px 30px -5px hsl(15 60% 55% / 0.3);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
