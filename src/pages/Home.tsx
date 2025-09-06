@@ -1,88 +1,81 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import ProductCard from "@/components/ProductCard";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Filter, Grid, List } from "lucide-react";
-
-// Import generated images
-import bambooPhoneCase from "@/assets/bamboo-phone-case.jpg";
-import organicTshirt from "@/assets/organic-cotton-tshirt.jpg";
-import solarLights from "@/assets/solar-garden-lights.jpg";
-import recycledBottle from "@/assets/recycled-water-bottle.jpg";
+import HeroSection from "../components/HeroSection";
+import Navigation from "../components/Navigation";
+import ProductCard from "../components/ProductCard";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
 
 const Home = () => {
   const categories = ["All", "Electronics", "Clothing", "Home & Garden", "Books", "Sports", "Toys"];
-  
+
   const mockProducts = [
     {
       id: 1,
       title: "Sustainable Bamboo Phone Case",
       price: 25,
       category: "Electronics",
-      image: bambooPhoneCase,
+      image: "/images/bamboo-phone-case.jpg",
       seller: "EcoTech Store",
       condition: "new" as const,
-      isEcoFriendly: true
+      isEcoFriendly: true,
     },
     {
       id: 2,
       title: "Organic Cotton T-Shirt",
       price: 35,
       category: "Clothing",
-      image: organicTshirt,
+      image: "/images/organic-cotton-tshirt.jpg",
       seller: "Green Fashion",
       condition: "like-new" as const,
-      isEcoFriendly: true
+      isEcoFriendly: true,
     },
     {
       id: 3,
       title: "Solar-Powered Garden Lights",
       price: 45,
       category: "Home & Garden",
-      image: solarLights,
+      image: "/images/solar-garden-lights.jpg",
       seller: "Solar Solutions",
       condition: "new" as const,
-      isEcoFriendly: true
+      isEcoFriendly: true,
     },
     {
       id: 4,
       title: "Recycled Plastic Water Bottle",
       price: 15,
       category: "Sports",
-      image: recycledBottle,
+      image: "/images/recycled-water-bottle.jpg",
       seller: "Hydro Green",
       condition: "new" as const,
-      isEcoFriendly: true
+      isEcoFriendly: true,
     },
     {
       id: 5,
       title: "Upcycled Wooden Desk Lamp",
       price: 80,
       category: "Home & Garden",
-      image: solarLights, // Reuse for now
+      image: "/images/solar-garden-lights.jpg", // Reusing for now
       seller: "Craft Masters",
       condition: "good" as const,
-      isEcoFriendly: true
+      isEcoFriendly: true,
     },
     {
       id: 6,
       title: "Bio-degradable Phone Stand",
       price: 20,
       category: "Electronics",
-      image: bambooPhoneCase, // Reuse for now
+      image: "/images/bamboo-phone-case.jpg", // Reusing for now
       seller: "Tech Green",
       condition: "new" as const,
-      isEcoFriendly: true
-    }
+      isEcoFriendly: true,
+    },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
-      
+
       {/* Products Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
