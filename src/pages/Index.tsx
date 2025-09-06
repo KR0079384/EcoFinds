@@ -1,104 +1,124 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { FaFacebook, FaGoogle, FaLeaf } from "react-icons/fa";
 
 export default function Index() {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="flex h-screen">
-      {/* ✅ Left Side: Marketing / Welcome */}
-      <div className="hidden w-1/2 bg-gradient-to-br from-green-600 to-green-400 p-10 text-white lg:flex flex-col justify-center">
-        <h1 className="text-4xl font-bold mb-4">🌱 EcoFinds</h1>
-        <h2 className="text-3xl font-extrabold mb-4">
-          Discover Sustainable Treasures
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 via-emerald-200 to-green-400 relative overflow-hidden">
+      {/* Background decorative circles */}
+      <div className="absolute w-72 h-72 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob top-10 left-10"></div>
+      <div className="absolute w-72 h-72 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 top-40 right-10"></div>
+      <div className="absolute w-72 h-72 bg-lime-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 bottom-10 left-1/2"></div>
+
+      {/* Card */}
+      <div className="w-full max-w-md bg-white/20 backdrop-blur-xl rounded-2xl shadow-2xl p-8 relative border border-white/30">
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-tr from-green-600 to-emerald-400 rounded-full shadow-lg">
+            <FaLeaf className="text-white text-3xl" />
+          </div>
+        </div>
+
+        {/* Title */}
+        <h2 className="text-3xl font-extrabold text-center text-green-900 drop-shadow mb-2">
+          {isLogin ? "Welcome Back 🌱" : "Create Your Account 🌍"}
         </h2>
-        <p className="mb-8 text-lg">
-          Join our community of eco-conscious buyers and sellers. Give pre-loved
-          items a new life while reducing your environmental footprint.
+        <p className="text-center text-gray-700 mb-6">
+          {isLogin
+            ? "Login to continue your eco journey."
+            : "Join us and make sustainable choices today."}
         </p>
-        <div className="flex gap-6">
-          <div>
-            <p className="text-2xl font-bold">500K+</p>
-            <p className="text-sm opacity-80">Items Saved</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold">50K+</p>
-            <p className="text-sm opacity-80">Happy Users</p>
-          </div>
-        </div>
-      </div>
 
-      {/* ✅ Right Side: Login / Signup */}
-      <div className="flex flex-1 items-center justify-center bg-gray-50">
-        <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            Welcome Back!
-          </h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Sign in to continue your sustainable journey
-          </p>
-
-          {/* Toggle Buttons */}
-          <div className="flex mb-6">
-            <button
-              onClick={() => setIsLogin(true)}
-              className={`flex-1 py-2 rounded-l-lg ${
-                isLogin ? "bg-green-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              Login
-            </button>
-            <button
-              onClick={() => setIsLogin(false)}
-              className={`flex-1 py-2 rounded-r-lg ${
-                !isLogin ? "bg-green-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              Sign Up
-            </button>
-          </div>
-
-          {/* Form */}
-          <form className="space-y-4">
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="your@email.com" />
-            </div>
-            <div>
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="••••••••" />
-            </div>
-
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="h-4 w-4 text-green-600" />
-                Remember me
+        {/* Form */}
+        <form className="space-y-4">
+          {!isLogin && (
+            <div className="relative">
+              <input
+                type="text"
+                required
+                className="peer w-full px-4 pt-5 pb-2 rounded-lg bg-white/60 border border-gray-300 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Full Name"
+              />
+              <label className="absolute left-4 top-2 text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-600">
+                Full Name
               </label>
-              <a href="#" className="text-green-600 hover:underline">
-                Forgot password?
-              </a>
             </div>
+          )}
 
-            <Button className="w-full bg-green-600 hover:bg-green-700">
-              {isLogin ? "Sign In" : "Create Account"}
-            </Button>
-          </form>
-
-          {/* Social login */}
-          <div className="my-6 text-center text-gray-500">OR CONTINUE WITH</div>
-          <div className="grid grid-cols-3 gap-3">
-            <Button variant="outline">🌍 Google</Button>
-            <Button variant="outline">🍏 Apple</Button>
-            <Button variant="outline">👥 Facebook</Button>
+          <div className="relative">
+            <input
+              type="email"
+              required
+              className="peer w-full px-4 pt-5 pb-2 rounded-lg bg-white/60 border border-gray-300 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Email"
+            />
+            <label className="absolute left-4 top-2 text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-600">
+              Email
+            </label>
           </div>
 
-          <p className="mt-6 text-sm text-gray-500 text-center">
-            By signing up, you're joining a community of 50,000+ eco-conscious
-            shoppers making a positive impact on our planet 🌱
-          </p>
+          <div className="relative">
+            <input
+              type="password"
+              required
+              className="peer w-full px-4 pt-5 pb-2 rounded-lg bg-white/60 border border-gray-300 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Password"
+            />
+            <label className="absolute left-4 top-2 text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-600">
+              Password
+            </label>
+          </div>
+
+          {!isLogin && (
+            <div className="relative">
+              <input
+                type="password"
+                required
+                className="peer w-full px-4 pt-5 pb-2 rounded-lg bg-white/60 border border-gray-300 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Confirm Password"
+              />
+              <label className="absolute left-4 top-2 text-sm text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-green-600">
+                Confirm Password
+              </label>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-green-600 to-emerald-500 hover:opacity-90 text-white font-semibold rounded-lg shadow-md transition duration-300"
+          >
+            {isLogin ? "Login" : "Sign Up"}
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="flex items-center my-4">
+          <div className="flex-grow h-px bg-gray-300"></div>
+          <span className="px-2 text-gray-500 text-sm">OR</span>
+          <div className="flex-grow h-px bg-gray-300"></div>
         </div>
+
+        {/* Social login */}
+        <div className="flex gap-4">
+          <button className="flex-1 flex items-center justify-center gap-2 py-2 bg-white/80 rounded-lg border border-gray-300 hover:bg-gray-100 transition">
+            <FaGoogle className="text-red-500" /> Google
+          </button>
+          <button className="flex-1 flex items-center justify-center gap-2 py-2 bg-white/80 rounded-lg border border-gray-300 hover:bg-gray-100 transition">
+            <FaFacebook className="text-blue-600" /> Facebook
+          </button>
+        </div>
+
+        {/* Switch mode */}
+        <p className="text-center text-sm text-gray-700 mt-6">
+          {isLogin ? "Don’t have an account?" : "Already have an account?"}{" "}
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className="text-green-700 font-semibold hover:underline"
+          >
+            {isLogin ? "Sign Up" : "Login"}
+          </button>
+        </p>
       </div>
     </div>
   );
