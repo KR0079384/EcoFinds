@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -19,9 +20,12 @@ const NotFound = () => {
         <Button onClick={() => navigate("/")} className="mt-4">
           Go Home
         </Button>
+
       </div>
     </div>
   );
 };
 
+
 export default NotFound;
+

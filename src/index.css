@@ -8,9 +8,12 @@
 @custom-variant dark (&:is(.dark *));
 /* ---break---
 */
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -334,6 +337,17 @@ All colors MUST be HSL.
   * {
     @apply border-border outline-ring/50;
   }
+  body {
+    @apply bg-background text-foreground;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
